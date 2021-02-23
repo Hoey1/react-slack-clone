@@ -12,7 +12,7 @@ class Register extends React.Component {
         passwordConfirmation: '',
         errors: [],
         loading: false,
-        usersRef: firebase.database().ref('users'),
+        usersRef: firebase.database().ref('users')
     }; 
 
     isFormValid = () => {
@@ -90,7 +90,7 @@ class Register extends React.Component {
         return this.state.usersRef.child(createdUser.user.uid).set({
             name: createdUser.user.displayName,
             avatar: createdUser.user.photoURL,
-        })
+        });
     }
 
     handleInputError = (errors, inputName) => {
