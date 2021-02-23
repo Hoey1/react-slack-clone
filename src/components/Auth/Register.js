@@ -22,10 +22,10 @@ class Register extends React.Component {
 
         if (this.isFormEmpty(this.state)) {
             // throw error
-            error = {message: 'Fill In All Fields'};
+            error = { message: 'Fill In All Fields' };
             this.setState({ errors: errors.concat(error) })
             return false;
-        } else if (this.isPasswordValid(this.state)) {
+        } else if (!this.isPasswordValid(this.state)) {
             // throw error
             error = { message: 'Password Is Invalid' };
             this.setState({ errors: errors.concat(error) });
@@ -94,7 +94,11 @@ class Register extends React.Component {
     }
 
     handleInputError = (errors, inputName) => {
-       return errors.some(error => error.message.toLowerCase().includes('inputName')) ? 'error' : ''
+       return errors.some(error => 
+            error.message.toLowerCase().includes(inputName)
+        ) 
+            ? "error" 
+            : ""
     }
 
 
