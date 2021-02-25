@@ -101,7 +101,7 @@ class Register extends React.Component {
             : ""
     }
 
-
+// redux store
     render() {
         const { username, email, password, passwordConfirmation, errors, loading } = this.state;
 
